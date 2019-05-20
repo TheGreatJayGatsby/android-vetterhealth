@@ -164,7 +164,11 @@ public class MainActivity extends AppCompatActivity implements AIListener {
             }
         });
 
-        adapter = new FirebaseRecyclerAdapter<ChatMessage, chat_rec>(ChatMessage.class, R.layout.chatbot_msglist, chat_rec.class, mDataBaseRef.child("chat")) {
+        adapter = new FirebaseRecyclerAdapter<ChatMessage, chat_rec>(
+                ChatMessage.class,
+                R.layout.chatbot_msglist,
+                chat_rec.class,
+                mDataBaseRef.child("chat")) {
             @Override
             protected void populateViewHolder(chat_rec viewHolder, ChatMessage model, int position) {
 

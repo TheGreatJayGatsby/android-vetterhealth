@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    FirebaseRecyclerAdapter<BlogPost, BlogzoneViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +37,18 @@ public class MainActivity extends AppCompatActivity {
 
         //initialize recyclerview and FIrebase objects
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("BlogPost");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseRecyclerAdapter<BlogPost, com.shs.vetterhealth.blogzone.MainActivity.BlogzoneViewHolder> FBRA = new FirebaseRecyclerAdapter<BlogPost, com.shs.vetterhealth.blogzone.MainActivity.BlogzoneViewHolder>(
+        adapter = new FirebaseRecyclerAdapter<BlogPost, BlogzoneViewHolder>(
                 BlogPost.class,
                 R.layout.blog_card_items,
-                com.shs.vetterhealth.blogzone.MainActivity.BlogzoneViewHolder.class,
+                BlogzoneViewHolder.class,
                 mDatabase
         ) {
             @Override
-            protected void populateViewHolder(com.shs.vetterhealth.blogzone.MainActivity.BlogzoneViewHolder viewHolder, BlogPost model, int position) {
+            protected void populateViewHolder(BlogzoneViewHolder viewHolder, BlogPost model, int position) {
                 final String post_key = getRef(position).getKey().toString();
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setDesc(model.getDesc());
@@ -67,8 +64,28 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         };
-        recyclerView.setAdapter(FBRA);
+
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+
+                int msgCount = adapter.getItemCount();
+                int lastVisiblePosition = linearLayoutManager.findLastCompletelyVisibleItemPosition();
+
+                if (lastVisiblePosition == -1 ||
+                        (positionStart >= (msgCount - 1) &&
+                                lastVisiblePosition == (positionStart - 1))) {
+                    recyclerView.scrollToPosition(positionStart);
+
+                }
+
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
     }
+
 
     public static class BlogzoneViewHolder extends RecyclerView.ViewHolder {
         View mView;
