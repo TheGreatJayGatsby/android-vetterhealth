@@ -2,47 +2,50 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context="com.shs.vetterhealth.blogzone.SinglePostActivity">
-
-    <ImageView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:id="@+id/singleImageview"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        tools:context="com.shs.vetterhealth.blogzone.SinglePostActivity">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/singleTitle"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="Post Title"
-        android:textColor="#100d0d"/>
+        <ImageView
+            android:id="@+id/singleImageview"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerInside" />
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Description"
-        android:id="@+id/singleDesc"/>
+        <TextView
+            android:id="@+id/singleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Post Title"
+            android:textColor="#100d0d"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/deleteBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="delete post"
-        android:background="#FFEA0404"
-        android:textColor="#fff"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/singleDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Post Description" />
 
-</LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#FFEA0404"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="delete post"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
