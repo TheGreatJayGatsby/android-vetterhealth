@@ -2,5 +2,7 @@
 <resources>
     <color name="colorPrimary">#000103</color>
     <color name="colorPrimaryDark">#24283e</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="color_light_grey">#4d4d4d</color>
+    <drawable name="touchFeedback">#CFD8DC</drawable>
+    <color name="colorAccent">#212121</color>
 </resources>

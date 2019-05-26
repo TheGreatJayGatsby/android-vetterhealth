@@ -32,3 +32,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    //App Dependencies Version
+    compactCalendarViewVersion = '2.0.2.1'
+    junitVersion = '4.12'
+}
+
