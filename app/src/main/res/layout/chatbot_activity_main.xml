@@ -18,7 +18,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <include layout="@layout/chatbot_content_main" />
+    <include
+        layout="@layout/chatbot_content_main"
+        android:background="#212121" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout >

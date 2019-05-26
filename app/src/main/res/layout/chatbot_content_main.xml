@@ -15,7 +15,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="50dp"
         android:clipToPadding="false"
-        android:background="#f4f6f7"
+        android:background="#212121"
         />
 
 
@@ -65,7 +65,7 @@
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_mic_white_24dp"
-                android:tint="#fff"/>
+                android:tint="#212121"/>
         </RelativeLayout>
 
     </RelativeLayout>
