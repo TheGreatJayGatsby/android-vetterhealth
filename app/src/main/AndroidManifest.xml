@@ -43,6 +43,10 @@
         <activity android:name="com.shs.vetterhealth.chatbot.MainActivity"
             android:parentActivityName="com.shs.vetterhealth.MainActivity" />
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
