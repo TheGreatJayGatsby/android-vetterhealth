@@ -10,7 +10,7 @@
         android:layout_height="180dp"
         android:background="#212121">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/ToolbarStyle"
             android:layout_width="match_parent"

@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:expanded="false"
-        app:layout_behavior="com.gautam.medicinetime.utils.ScrollingCalendarBehavior">
+        app:layout_behavior="com.shs.vetterhealth.pillnotifier.utils.ScrollingCalendarBehavior">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbarLayout"
@@ -47,7 +47,7 @@
                     app:compactCalendarTextSize="12sp" />
             </LinearLayout>
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 style="@style/ToolbarStyle"
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                         tools:ignore="ContentDescription,RtlHardcoded" />
 
                 </RelativeLayout>
-            </android.support.v7.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -96,7 +96,7 @@
         android:id="@+id/contentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_add_task"
