@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -43,6 +44,14 @@
         <activity android:name="com.shs.vetterhealth.chatbot.MainActivity"
             android:parentActivityName="com.shs.vetterhealth.MainActivity" />
         <activity android:name="com.shs.vetterhealth.blogzone.MainActivity"
+            android:parentActivityName="com.shs.vetterhealth.MainActivity" />
+        <activity android:name="com.shs.vetterhealth.pillnotifier.medicine.MedicineActivity"
+            android:parentActivityName="com.shs.vetterhealth.MainActivity" />
+        <activity android:name="com.shs.vetterhealth.pillnotifier.addmedicine.AddMedicineActivity"
+            android:parentActivityName="com.shs.vetterhealth.MainActivity"  />
+        <activity android:name="com.shs.vetterhealth.pillnotifier.alarm.ReminderActivity"
+            android:parentActivityName="com.shs.vetterhealth.MainActivity"  />
+        <activity android:name="com.shs.vetterhealth.pillnotifier.report.MonthlyReportActivity"
             android:parentActivityName="com.shs.vetterhealth.MainActivity" />
 
         <meta-data

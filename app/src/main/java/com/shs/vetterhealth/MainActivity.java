@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_chatbot) {
             Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.chatbot.MainActivity.class);
             startActivity(intent);
-        } else if (id == R.id.action_therapy) {
-            Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.therapy.Dashboard.class);
+        } else if (id == R.id.action_pillnotifier) {
+            Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.pillnotifier.medicine.MedicineActivity.class);
             startActivity(intent);
         } else if (id == R.id.action_add) {
             startActivity(new Intent(MainActivity.this, PostActivity.class));
