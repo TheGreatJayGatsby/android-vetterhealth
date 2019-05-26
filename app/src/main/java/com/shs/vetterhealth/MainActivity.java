@@ -1,29 +1,19 @@
 package com.shs.vetterhealth;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.shs.vetterhealth.blogzone.BlogPost;
 import com.shs.vetterhealth.blogzone.PostActivity;
-import com.shs.vetterhealth.R;
-import com.shs.vetterhealth.blogzone.SinglePostActivity;
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -78,8 +68,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, com.shs.vetterhealth.sleeptracker.MainActivity.class));
         } else if (id == R.id.action_blog) {
             startActivity(new Intent(MainActivity.this, com.shs.vetterhealth.blogzone.MainActivity.class));
-        } else if (id == R.id.action_chatbot) {
+        } else if (id == R.id.action_therapy_chatbot) {
             Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.chatbot.MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.action_therapy_analysis) {
+            Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.therapy.Dashboard.class);
             startActivity(intent);
         } else if (id == R.id.action_pillnotifier) {
             Intent intent = new Intent(MainActivity.this, com.shs.vetterhealth.pillnotifier.medicine.MedicineActivity.class);

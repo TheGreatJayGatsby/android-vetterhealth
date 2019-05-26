@@ -18,12 +18,12 @@
         android:title="@string/sleeptrack"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_chatbot"
+        android:id="@+id/action_therapy_chatbot"
         android:orderInCategory="100"
         android:title="@string/chatbot"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_therapy"
+        android:id="@+id/action_therapy_analysis"
         android:orderInCategory="100"
         android:title="@string/therapy"
         app:showAsAction="never" />
