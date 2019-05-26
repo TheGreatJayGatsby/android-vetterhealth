@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
         loginEmail = (EditText)findViewById(R.id.login_email);
         loginPass = (EditText)findViewById(R.id.login_password);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");

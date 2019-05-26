@@ -51,6 +51,7 @@
             android:background="@drawable/buttonstyle"
             android:fontFamily="@font/quicksand_medium"
             android:hint="username"
+            android:inputType="text"
             android:padding="16dp"
             android:textColor="#fff"
             android:textColorHint="#fff" />
@@ -99,7 +100,7 @@
             android:layout_gravity="center"
             android:layout_margin="16dp"
             android:fontFamily="@font/quicksand_medium"
-            android:text="already registered ? Login"
+            android:text="already registered? Login"
             android:textColor="#fff"
             android:textSize="16sp"
             android:textStyle="bold" />

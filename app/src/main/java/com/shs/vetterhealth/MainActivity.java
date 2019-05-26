@@ -1,16 +1,21 @@
 package com.shs.vetterhealth;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +30,8 @@ import com.shs.vetterhealth.R;
 import com.shs.vetterhealth.blogzone.SinglePostActivity;
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Method;
+
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
@@ -34,14 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blog_activity_main);
         toolbar = findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(toolbar);
 
+        //Sets to night theme
+        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("BlogPost");
         mAuth = FirebaseAuth.getInstance();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -52,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
     }
 
     @Override
@@ -59,13 +72,23 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
 
+
+
     }
 
 
+    @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        if(menu instanceof MenuBuilder){
+            MenuBuilder m = (MenuBuilder) menu;
+            //noinspection RestrictedApi
+            m.setOptionalIconsVisible(true);
+        }
+
         return true;
     }
 
@@ -94,4 +117,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

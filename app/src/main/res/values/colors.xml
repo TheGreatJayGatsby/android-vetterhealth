@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000103</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="background">#212121</color>
     <color name="colorPrimaryDark">#24283e</color>
     <color name="color_light_grey">#4d4d4d</color>
     <drawable name="touchFeedback">#CFD8DC</drawable>
