@@ -5,5 +5,5 @@
     <color name="colorPrimaryDark">#24283e</color>
     <color name="color_light_grey">#4d4d4d</color>
     <drawable name="touchFeedback">#CFD8DC</drawable>
-    <color name="colorAccent">#212121</color>
+    <color name="colorAccent">#FFF</color>
 </resources>

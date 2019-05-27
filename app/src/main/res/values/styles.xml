@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/background</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/colorPrimary</item>
     </style>
 
@@ -34,16 +36,20 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlHighlight">#3fff</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
         <item name="titleTextAppearance">@style/ToolbarTitleTextAppearance</item>
         <item name="subtitleTextAppearance">@style/ToolbarSubtitleTextAppearance</item>
     </style>
 
     <style name="ToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@android:color/white
+        </item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
     </style>
 
     <style name="ToolbarSubtitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
     </style>
 
 
