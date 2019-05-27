@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="183dp"
-            android:layout_height="153dp"
+            android:layout_width="137dp"
+            android:layout_height="115dp"
             android:layout_gravity="center_horizontal"
 
 
@@ -41,31 +41,49 @@
             android:textColor="#91CE4A"
             android:textSize="38dp" />
 
-        <EditText
-            android:id="@+id/login_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/buttonstyle"
-            android:fontFamily="@font/quicksand_medium"
-            android:hint="Enter Email"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#fff" />
 
-        <EditText
-            android:id="@+id/login_password"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/buttonstyle"
-            android:fontFamily="@font/quicksand_medium"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:padding="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFF" />/>
+            android:layout_height="79dp">
+
+
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#fff" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="79dp">
+
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#FFF" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/loginBtn"
@@ -73,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@drawable/action_button_style"
             android:fontFamily="@font/quicksand_medium"
             android:text="Login"
             android:textColor="#fff" />
