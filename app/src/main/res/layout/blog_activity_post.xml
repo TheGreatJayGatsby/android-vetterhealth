@@ -15,11 +15,13 @@
 
         <ImageButton
             android:id="@+id/imageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@drawable/add_img"
+            android:background="@drawable/new_add_img"
             android:scaleType="centerInside"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
 
             />
 
@@ -44,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             android:background="@drawable/edit_text_styles"
             android:fontFamily="@font/quicksand_medium"
