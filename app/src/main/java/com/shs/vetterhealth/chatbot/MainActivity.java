@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.shs.vetterhealth.R;
 
+import java.util.Objects;
+
 import ai.api.AIDataService;
 import ai.api.AIListener;
 import ai.api.AIServiceException;
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements AIListener {
         recyclerView = findViewById(R.id.recyclerViewChatbot);
         editText = findViewById(R.id.editText);
         addBtn = findViewById(R.id.addBtn);
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Therapy Chat");
+
+
 
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -294,7 +300,7 @@ public class MainActivity extends AppCompatActivity implements AIListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -303,11 +309,7 @@ public class MainActivity extends AppCompatActivity implements AIListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (getFragmentManager().getBackStackEntryCount() != 0) {
-                    getFragmentManager().popBackStack();
-                } else {
-                    NavUtils.navigateUpFromSameTask(this);
-                }
+                finish();
 
                 return true;
             default:

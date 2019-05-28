@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.TimeZone;
 
 import butterknife.BindView;
@@ -78,7 +79,8 @@ public class MedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pillnotifier_activity_medicine);
         ButterKnife.bind(this);
-//        setSupportActionBar(toolbar);
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Pill Notifications");
 
         mCompactCalendarView.setLocale(TimeZone.getDefault(), /*Locale.getDefault()*/Locale.ENGLISH);
 
@@ -127,12 +129,27 @@ public class MedicineActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_stats) {
-            Intent intent = new Intent(this, MonthlyReportActivity.class);
-            startActivity(intent);
+
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+
+                return true;
+
+            case R.id.menu_stats:
+                    Intent intent = new Intent(this, MonthlyReportActivity.class);
+                    startActivity(intent);
+
+
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+
+
     }
+
 
     public void setCurrentDate(Date date) {
         setSubtitle(dateFormat.format(date));

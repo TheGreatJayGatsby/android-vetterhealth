@@ -7,13 +7,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private Button loginBtn;
+    private TextView resgisterTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,34 +41,44 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
         loginEmail = (EditText)findViewById(R.id.login_email);
         loginPass = (EditText)findViewById(R.id.login_password);
+        resgisterTxt = findViewById(R.id.signUpTxtView);
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "PROCESSING....", Toast.LENGTH_LONG).show();
-                String email = loginEmail.getText().toString().trim();
-                String password = loginPass.getText().toString().trim();
+        resgisterTxt.setOnClickListener(v -> {
+            Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
 
-                if (!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(password)){
+            startActivity(registerIntent);
 
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                checkUserExistence();
-                            }else {
-                                Toast.makeText(LoginActivity.this, "Couldn't login, User not found", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }else {
+        });
 
-                    Toast.makeText(LoginActivity.this, "Complete all fields", Toast.LENGTH_SHORT).show();
-                }
+        loginBtn.setOnClickListener(view -> {
+
+            Snackbar.make(view, "Logging in...", Snackbar.LENGTH_LONG).show();
+
+            String email = loginEmail.getText().toString().trim();
+            String password = loginPass.getText().toString().trim();
+
+            if (!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(password)){
+
+                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        checkUserExistence();
+
+
+
+                    }else {
+
+                        Snackbar.make(view, "That user doesn't exist", Snackbar.LENGTH_LONG).show();
+
+                    }
+                });
+            }else {
+
+                Snackbar.make(view, "Make sure all of the fields are filled in", Snackbar.LENGTH_LONG).show();
             }
         });
     }
@@ -77,7 +91,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.hasChild(user_id)){
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                    Intent main = new Intent(LoginActivity.this, MainActivity.class);
+
+                    main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(main);
+                    finish();
                 }else {
                     Toast.makeText(LoginActivity.this, "User not registered!", Toast.LENGTH_SHORT).show();
                 }

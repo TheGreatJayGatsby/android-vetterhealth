@@ -47,11 +47,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnEv
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if(getFragmentManager().getBackStackEntryCount() != 0) {
-                    getFragmentManager().popBackStack();
-                }else {
-                    NavUtils.navigateUpFromSameTask(this);
-                }
+                finish();
 
                 return true;
             default:

@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         loginTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
             }
         });
         registerBtn.setOnClickListener(new View.OnClickListener() {

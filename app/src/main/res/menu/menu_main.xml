@@ -39,7 +39,7 @@
         android:orderInCategory="100"
         android:title="Pill Notifier"
         app:showAsAction="always"
-        android:icon="@drawable/ic_bell_ring" />
+        android:icon="@drawable/ic_pill" />
 
     <item
         android:id="@+id/action_add"
