@@ -1,76 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <Button
+        android:id="@+id/postBtn"
+        android:layout_width="403dp"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/quicksand_medium"
+        android:text="Post"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+
+        android:id="@+id/scrollView2"
+        android:layout_width="413dp"
+        android:layout_height="677dp"
+        android:background="#212121"
+        app:layout_constraintBottom_toTopOf="@+id/postBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        tools:context="com.shs.vetterhealth.blogzone.PostActivity">
-
-        <ImageButton
-            android:id="@+id/imageBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@drawable/new_add_img"
-            android:scaleType="centerInside"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-
-            />
-
-        <EditText
-            android:id="@+id/textTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/edit_text_styles"
-            android:fontFamily="@font/quicksand_medium"
+            tools:context="com.shs.vetterhealth.blogzone.PostActivity">
 
-            android:hint="Post Title"
-            android:padding="10dp"
-            android:textColor="#fff"
-            android:textColorHint="#FFF"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/imageBtn"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
 
-        <EditText
-            android:id="@+id/textDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/edit_text_styles"
-            android:fontFamily="@font/quicksand_medium"
-            android:hint="Post Description"
-            android:padding="10dp"
-            android:textColor="#fff"
-            android:textColorHint="#FFF" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                android:layout_marginTop="8dp"
+                android:background="?selectableItemBackground"
+                android:cropToPadding="false"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_image_plus" />
 
-        <Button
-            android:id="@+id/postBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/action_button_style"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Post"
-            android:textColor="#fff"
-            android:textStyle="bold" />
 
-    </LinearLayout>
-</ScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textTitleLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBtn">
+
+                <EditText
+                    android:id="@+id/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:hint="Post Title"
+                    android:padding="10dp"
+                    android:textColor="#fff"
+                    android:textColorHint="#FFF"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textDescLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleLayout">
+
+                <EditText
+                    android:id="@+id/textDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
+
+                    android:fontFamily="@font/quicksand_medium"
+                    android:hint="Post Description"
+                    android:padding="10dp"
+                    android:textColor="#fff"
+                    android:textColorHint="#FFF" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.blog_activity_main);
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.menu_main);
-        setSupportActionBar(toolbar);
+
+
+
+
 
         //Sets to night theme
         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);

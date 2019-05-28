@@ -19,8 +19,7 @@ import butterknife.ButterKnife;
 public class MonthlyReportActivity extends AppCompatActivity {
 
     private static final String CURRENT_FILTERING_TYPE = "current_filtering_type";
-
-    @BindView(R.id.toolbar)
+    
     Toolbar toolbar;
 
     private MonthlyReportPresenter presenter;
@@ -35,7 +34,10 @@ public class MonthlyReportActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_clear);
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Monthly Stats");
         }
+
+
 
         //Create Fragment
         MonthlyReportFragment monthlyReportFragment = (MonthlyReportFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);

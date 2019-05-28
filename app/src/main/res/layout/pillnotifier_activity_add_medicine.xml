@@ -12,19 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                style="@style/ToolbarStyle"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="#212121"
-                app:layout_collapseMode="pin"/>
-        </com.google.android.material.appbar.AppBarLayout>
-
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinatorLayout"
             android:layout_width="match_parent"
@@ -40,11 +27,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/sixteen_dp"
-                app:backgroundTint="#212121"
+                app:backgroundTint="#FFFFFF"
                 app:fabSize="normal"
                 app:layout_anchor="@id/contentFrame"
                 app:layout_anchorGravity="bottom|right|end"
-                app:srcCompat="@drawable/ic_add" />
+                app:srcCompat="@drawable/ic_add_black_24dp" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </LinearLayout>
